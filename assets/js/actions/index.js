@@ -1,22 +1,23 @@
-let nextTodoId = 0
-export const addTodo = (text) => {
+export const changeText = () => {
   return {
-    type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
+    type: 'CHANGE_TEXT',
+    text: 'テキストだよ',
+    class: ''
   }
 }
 
-export const setVisibilityFilter = (filter) => {
+export const changeColor = () => {
   return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
+    type: 'CHANGE_COLOR',
+    text: '',
+    class: 'changeClass'
   }
 }
 
-export const toggleTodo = (id) => {
+export const showAlert = () => {
   return {
-    type: 'TOGGLE_TODO',
-    id
+    type: 'SHOW_ALERT',
+    text: '',
+    class: ''
   }
 }
