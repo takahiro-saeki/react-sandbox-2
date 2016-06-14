@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 100;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "San Francisco";
+  font-size: 1.4rem
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.responsive-img {
+  size: 100% auto;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+input {
+  -webkit-appearance: none;
+  border: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  &:link {
+    color: #00838f;
+  }
+  &:visited {
+    color: #00838f;
+  }
+}
+
+.img-shadow {
+  box-shadow: 0 1px 6px rgba(0,0,0,.35);
+  size: 100% auto;
+}
+
+@define-mixin min $minWidth {
+  @media screen and (width >= $minWidth) {
+    @mixin-content;
+  }
+}
+
+@define-mixin max $maxWidth {
+  @media screen and (width <= $maxWidth) {
+    @mixin-content;
+  }
+}
+
+@define-mixin between $minWidth, $maxWidth {
+  @media screen and (width >= $minWidth) and (width <= $maxWidth) {
+    @mixin-content;
+  }
+}

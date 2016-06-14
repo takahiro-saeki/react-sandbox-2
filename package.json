@@ -1,0 +1,48 @@
+{
+  "name": "react-sandbox-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --inline",
+    "tree": "tree -I node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takahiro-saeki/react-sandbox-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takahiro-saeki/react-sandbox-2/issues"
+  },
+  "homepage": "https://github.com/takahiro-saeki/react-sandbox-2#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.23.1",
+    "flux": "^2.1.1",
+    "keymirror": "^0.1.1",
+    "lodash": "^4.13.1",
+    "material-ui": "^0.15.0",
+    "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-loader": "^2.4.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "react-tap-event-plugin": "^1.0.0",
+    "react-textarea-autosize": "^4.0.2",
+    "redux": "^3.5.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
