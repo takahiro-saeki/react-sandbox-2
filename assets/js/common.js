@@ -10,8 +10,19 @@ const testConstants = {
   TEST: "test"
 };
 
-// action
-var TestAction = {
+class DisTest extends Dispatcher {
+  test() {
+    this.dispatch({
+      actionType: 'actionTest',
+      value: 'valueTest',
+    })
+  }
+}
+
+const distest = new DisTest()
+console.log(distest.test())
+
+let TestAction = {
   test: testValue => {
     testDispatcher.dispatch({
       actionType: testConstants.TEST,
@@ -20,24 +31,31 @@ var TestAction = {
   }
 };
 
-var _test = {value: null};
-var TestStore = assign({}, EventEmitter.prototype, {
-  getAll: () =>  _test,
-  emitChange: function () {
-    this.emit(CHANGE_EVENT);
-  },
-  addChangeListener: function (callback) {
-    this.on(CHANGE_EVENT, callback);
-  },
-  dispatcherIndex: testDispatcher.register(function (payload) {
-    if (payload.actionType === testConstants.TEST) {
-      // console.log(payload.value);
-      _test.value = payload.value;
-      TestStore.emitChange();
-    }
-  })
-});
+class TestStore extends EventEmitter {
+  constructor() {
+    super();
+    this._test = {value: null}
+  }
+  getAll() {
+    return this._test
+  }
+  emitChange() {
+    this.emit(CHANGE_EVENT)
+  }
+  addChangeListener(callback) {
+    this.on(CHANGE_EVENT, callback)
+  }
+  dispatcherIndex() {
+    testDispatcher.register(payload => {
+      if (payload.actionType === testConstants.TEST) {
+        this._test.value = payload.value;
+        TestStore.emitChange();
+      }
+    })
+  }
+}
 
+TestStore = new TestStore()
 
 class TestApp extends Component {
   constructor(props) {
