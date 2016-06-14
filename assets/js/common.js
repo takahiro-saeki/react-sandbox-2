@@ -18,9 +18,50 @@ class DisTest extends Dispatcher {
     })
   }
 }
-
 const distest = new DisTest()
-console.log(distest.test())
+
+//dispatcher test
+class DispatcherClass extends Dispatcher {
+  constructor() {
+    super()
+    this.handleViewAction('view')
+    this.handleServerAction('server')
+  }
+
+  handleViewAction(action) {
+    this.dispatch({
+      source: 'VIEW_ACTION',
+      action: action,
+    });
+  }
+
+  handleServerAction(action) {
+    this.dispatch({
+      source: 'SERVER_ACTION',
+      action: action,
+    });
+  }
+
+  test(test) {
+    console.log(test)
+    this.dispatch({
+      test: test
+    })
+  }
+}
+
+const AppDispatcher = new DispatcherClass();
+console.log(AppDispatcher.test('testです'))
+
+var dispatcher = new Dispatcher({
+  logLevel: 'ALL'
+});
+class Actions {
+  navigate(newRoute) {
+    dispatcher.dispatch('NAVIGATE', { location: newRoute });
+  }
+}
+console.log(new Actions().navigate('test'))
 
 let TestAction = {
   test: testValue => {
