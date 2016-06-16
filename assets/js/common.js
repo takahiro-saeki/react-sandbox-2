@@ -5,16 +5,15 @@ import { Provider } from 'react-redux';
 import appReducer from './reducers/reducer';
 import App from './container/App';
 
-const initialValues = {
-  v1: 'initialvalue',
-  v2: 'v2だよ',
-  v3: '入力内容',
+const tests = {
+  v1: 'test',
+  v2: 'sample',
+  v3: 'hey',
   v4: true,
-  v5: 5
-};
+  v5: 0
+}
 
-const store = createStore(appReducer, initialValues);
-//console.log(appReducer.state)
+const store = createStore(appReducer, tests);
 ReactDOM.render(
   <Provider store={store}>
     <App />

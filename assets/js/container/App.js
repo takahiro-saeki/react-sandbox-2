@@ -8,6 +8,9 @@ import { Modal } from '../components/Modal';
 import { Inc } from '../components/Inc';
 
 class RootApp extends Component {
+  componentWillUpdate() {
+    console.log(this.props)
+  }
   render() {
     return (
       <div>

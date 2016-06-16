@@ -1,7 +1,6 @@
-import { combineReducers } from 'redux';
+//import { combineReducers } from 'redux';
 
 function appReducer(state, action) {
-  console.log(state)
   switch (action.type) {
     case 'ACTION1':
     return Object.assign({}, state, { v1: action.value });
@@ -12,7 +11,7 @@ function appReducer(state, action) {
     case 'MODAL':
     return Object.assign({}, state, { v4: action.value });
     case 'INC':
-    return Object.assign({}, state, { v5: action.value });
+    return Object.assign({}, state, { v5: action.hoge });
     default:
     return state
   }

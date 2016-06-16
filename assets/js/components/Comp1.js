@@ -2,7 +2,7 @@ import React from 'react';
 import randomstring from 'randomstring';
 
 export const Comp1 = props => (
-  <div>
+  <div>{console.log(props)}
     <div>This is Comp1. value is '{props.value}'.</div>
     <button onClick={() => props.action(
         randomstring.generate({
