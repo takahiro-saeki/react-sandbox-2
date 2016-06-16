@@ -1,32 +1,38 @@
-import React, {Component} from 'react';
-import todoApp from '../reducers/index';
-import { changeText, changeColor, showAlert } from '../actions';
+import React, { Component } from 'react'
+import AddTodo from '../components/AddTodo'
+import TodoList from '../components/TodoList'
+import Footer from '../components/Footer'
+
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      type: '',
-      text: 'デフォルト',
-      class: '',
-      flag: false
-    }
-    this.create = this.create.bind(this);
-  }
-  create() {
-    console.log(todoApp(changeText(), this.state))
-    return todoApp('', 'CHANGE_TEXT')
-  }
   render() {
     return (
-      <main>
-        <h2 onClick={this.create}>テスト</h2>
-        <ul>
-          <li>ボタン1</li>
-          <li>ボタン2</li>
-          <li>ボタン3</li>
-        </ul>
-        <p>テキスト</p>
-      </main>
+      <div>
+        <AddTodo
+          onAddClick={text =>
+            console.log('add todo', text)
+          } />
+        <TodoList
+          todos={
+            [
+              {
+                text: 'Use Redux',
+                completed: true
+              },
+              {
+                text: 'Learn to connect it to React',
+                completed: false
+              }
+            ]
+          }
+          onTodoClick={index =>
+            console.log('todo clicked', index)
+          } />
+        <Footer
+          filter='SHOW_ALL'
+          onFilterChange={filter =>
+            console.log('filter change', filter)
+          } />
+      </div>
     )
   }
 }

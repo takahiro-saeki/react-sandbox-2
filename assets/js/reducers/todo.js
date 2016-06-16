@@ -1,7 +1,7 @@
 export default function todos(state = [], action) {
   switch (action.type) {
-    case 'ADD_TODO':
-      return state.concat([ action.text ])
+    case 'BTN_1':
+      return Object.assign({}, state, action)
     default:
       return state
   }
