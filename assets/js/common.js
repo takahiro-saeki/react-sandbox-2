@@ -90,18 +90,15 @@ const Comp1 = props => (
         <div>
           <button
             onClick={() => props.action(false)}>
+            {console.log(props)}
             {props.value ? 'テスト！': 'ボタン！'}
           </button>
         </div>
       )
 
       class RootApp extends Component {
-        constructor(props) {
-          super(props);
-        }
-
         componentDidUpdate() {
-          console.log(this.props)
+          console.log(store.getState())
         }
 
         render() {
